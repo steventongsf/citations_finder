@@ -4,6 +4,6 @@ build:
 run:
 	docker run -it --rm --name python -v ${cwd}:/root/citations_finder mypython:latest bash
 unittest:
-	python  -m pytest -rP -v .\tests 
+	python  -m pytest -rP --html=pytest_report.html .\tests 
 
 all: build run
