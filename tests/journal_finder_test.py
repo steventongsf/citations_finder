@@ -42,16 +42,15 @@ class JournalFinderTests(unittest.TestCase):
     def test_getCrossrefResults_noMissingTitles(self):
         test_doi = "10.1111/jeb.13941"
         test_title = "Journal of Evolutionary Biology"
-        issn_types = [{"value":"1010-061X","type":"print"},{"value":"1420-9101","type":"electronic"}]
         journal_dict = defaultdict()
         journal_dict[test_title] = []
         journal_dict = _getCrossrefResults(test_doi, journal_dict)
+        self.assertEquals([], journal_dict[test_title])
 
     @unittest.skip("test fails when title is not in list")
     def test_getCrossrefResults_missingTitles(self):
         test_doi = "10.1111/jeb.13941"
         test_title = "of Evolutionary Biology"
-        issn_types = [{"value":"1010-061X","type":"print"},{"value":"1420-9101","type":"electronic"}]
         journal_dict = defaultdict()
         journal_dict[test_title] = []
         journal_dict = _getCrossrefResults(test_doi, journal_dict)
